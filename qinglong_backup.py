@@ -11,7 +11,7 @@ qinglong-backup v4.0 —— 青龙面板备份到阿里云盘
 变量（写在 /ql/data/config/config.sh，面板环境变量对本脚本不生效）：
   QLBK_PREFIX          备份文件名前缀，默认 qinglong
   QLBK_KEEP_DAYS       云端旧备份保留天数，默认 30；<=0 表示不清理云端
-  QLBK_BACKUPS_PATH    备份目录（本地与云盘同名），默认 backups28，支持多级如 backups/ql
+  QLBK_BACKUPS_PATH    备份目录（本地与云盘同名），默认 backups，支持多级如 backups/ql
   QLBK_KEEP_LOCAL      本地留档：1=上传成功后只留最新那一个（默认）；0=上传成功后本地不留包
   QLBK_MAX_FLIES       云端数量上限兜底，默认 0（不限制）
   QLBK_EXTRA_EXCLUDE   追加排除（推荐用这个）。支持三种写法：
@@ -82,7 +82,7 @@ if env("QLBK_EXTRA_EXCLUDE"):
     QLBK_EXCLUDE_NAMES += [e for e in _extra if e not in QLBK_EXCLUDE_NAMES]
     logger.info(f'QLBK_EXTRA_EXCLUDE 追加排除: {_extra}')
 
-QLBK_BACKUPS_PATH = env("QLBK_BACKUPS_PATH", 'backups28')      # 备份目录名（本地 & 云盘同名）
+QLBK_BACKUPS_PATH = env("QLBK_BACKUPS_PATH", 'backups')      # 备份目录名（本地 & 云盘同名）
 QLBK_KEEP_DAYS = int(env("QLBK_KEEP_DAYS", '30'))              # 云端旧备份保留天数，<=0 表示不清理云端
 QLBK_MAX_FLIES = int(env("QLBK_MAX_FLIES", '0'))               # 云端数量上限兜底，0=不限制
 QLBK_KEEP_LOCAL = str(env("QLBK_KEEP_LOCAL", '1')).lower()      # 1=上传后本地只留最新那一个(默认)；0=上传后本地不留
@@ -258,7 +258,7 @@ def cleanup_cloud(remote_folder):
 def show(qr_link: str):
     """打印二维码链接"""
     logger.info('请手动复制以下链接，打开阿里网盘App扫描登录')
-    logger.info(f'https://qr.010507.xyz/api/qrcode/code?text={qr_link}')
+    logger.info(f'https://qr.7271.dpdns.org/api/qrcode/code?text={qr_link}')
 
 
 def start():
