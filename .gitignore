@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# 备份产物（别把包提交上来）
+*.tar.gz
+*.tar
+backups*/
+
+# 阿里云盘登录态 / 凭据，千万别提交
+.aligo/
+aligo.json
+*_token*.json
+token.json
+
+# 本地配置
+config.sh
+*.local
+
+# 编辑器 / 系统
+.idea/
+.vscode/
+.DS_Store
