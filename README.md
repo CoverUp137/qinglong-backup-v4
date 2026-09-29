@@ -25,7 +25,7 @@
 |---|---|---|
 | `QLBK_PREFIX` | `qinglong` | 备份文件名前缀 |
 | `QLBK_KEEP_DAYS` | `30` | 云端旧备份保留天数，`<=0` 表示不清理云端 |
-| `QLBK_BACKUPS_PATH` | `backups28` | 备份目录（本地与云盘同名），支持多级如 `backups/ql` |
+| `QLBK_BACKUPS_PATH` | `backups` | 备份目录（本地与云盘同名），支持多级如 `backups/ql` |
 | `QLBK_KEEP_LOCAL` | `1` | `1`=上传成功后本地只留最新那一个；`0`=上传成功后本地不留包 |
 | `QLBK_MAX_FLIES` | `0` | 云端数量上限兜底，`0`=不限制 |
 | `QLBK_EXTRA_EXCLUDE` | 空 | 追加排除（推荐） |
@@ -55,7 +55,7 @@ export QLBK_EXTRA_EXCLUDE="scripts/data_*、scripts/debug"
 - 变量写 `config.sh`，**不要**写面板「环境变量」：普通 `task xxx` 任务不会注入它们，而且同名变量会把 `config.sh` 里的值清掉
 - 登录态在 `/home/qinglong/.aligo/aligo.json`，重建容器 / 恢复备份后需要重新扫码
 - 目录被排除后不会进包，恢复时该目录也不会回来（`node_modules`、依赖缓存这类需重装）
-- 被排除的目录恢复后不会回来（`node_modules`、`dep_cache` 这类需重新安装）
+- 登录二维码链路默认走公共 API；如需**自建**（不依赖第三方），可用 [i207M/qr-code-worker](https://github.com/i207M/qr-code-worker) 部署，再把脚本 `show()` 里的链接换成你自己的域名
 
 ## 更新日志
 
