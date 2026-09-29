@@ -18,7 +18,7 @@
 1. 装依赖：面板「依赖管理」→ Python3 → 添加 `aligo`
 2. 把 `qinglong_backup.py` 放进 `/ql/data/scripts/`
 3. 变量追加到 `/ql/data/config/config.sh`（清单见脚本头部注释）
-4. 新建定时任务：命令 `task qinglong_backup.py`，规则 `0 2 * * *`
+4. 新建定时任务：命令 `task qinglong_backup.py`，每4天13点半备份 规则 `30 13 */4 * *`
 5. 手动跑一次，日志里打印的链接用**阿里云盘 App** 扫码登录
 
 ## 变量
