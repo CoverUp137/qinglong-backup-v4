@@ -2,6 +2,8 @@
 
 青龙面板数据备份脚本：把 `/ql/data` 打包上传到**阿里云盘**，本地只留最新一份，云端按天数自动清理。
 
+> 本项目针对 [whyour/qinglong](https://github.com/whyour/qinglong) 的目录结构进行了适配。
+
 ## 特性
 
 - **递归排除目录**：任意层级的 `node_modules` 都能排掉
